@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUREUM — онлайн-аукцион</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+  <div id="site-header"></div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Live auction house</div>
+          <h1>Торги, которые<br>идут <em>сейчас</em></h1>
+          <p class="lead">AUREUM — онлайн-аукцион искусства, часов, автомобилей и вина. Прозрачные ставки, эскроу-сделка и экспертиза каждого лота.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#catalog">Смотреть лоты</a>
+            <a class="btn btn-ghost" href="#how">Как проходят торги</a>
+          </div>
+          <div class="stats">
+            <div><b>128</b><span>лотов в сезоне</span></div>
+            <div><b>41</b><span>страна участников</span></div>
+            <div><b>98%</b><span>сделок закрыто</span></div>
+          </div>
+        </div>
+        <article class="hero-card" id="hero-lot"></article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 20px">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Featured</div>
+            <h2>Избранные лоты</h2>
+          </div>
+          <a class="btn btn-ghost" href="#catalog">Весь каталог</a>
+        </div>
+        <div class="cards" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Catalogue</div>
+            <h2>Все лоты сезона</h2>
+          </div>
+        </div>
+        <div class="filters" id="catalog-filters"></div>
+        <div class="search-row">
+          <input id="catalog-search" placeholder="Поиск: Rolex, Cartier, холст…">
+          <select id="catalog-sort">
+            <option value="end">Скоро закроются</option>
+            <option value="price">Дороже</option>
+            <option value="price-asc">Дешевле</option>
+          </select>
+        </div>
+        <div class="cards" id="catalog-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="eyebrow">Process</div>
+        <h2>Как проходят торги</h2>
+        <p class="muted">Четыре шага от регистрации до передачи лота.</p>
+        <div class="steps" style="margin-top:28px">
+          <div class="step"><div class="num">01</div><h3>Регистрация</h3><p class="muted">Кабинет, подтверждение личности и лимит ставки. Для демо достаточно имени.</p></div>
+          <div class="step"><div class="num">02</div><h3>Изучение лота</h3><p class="muted">Фото, провенанс, эстимейт и отчёт экспертизы. Можно задать вопрос специалисту.</p></div>
+          <div class="step"><div class="num">03</div><h3>Ставка</h3><p class="muted">Фиксированный шаг. Если ставка в последние 2 минуты — таймер продлевается.</p></div>
+          <div class="step"><div class="num">04</div><h3>Сделка</h3><p class="muted">Оплата через эскроу, страховка перевозки, акт приёма. Комиссия покупателя 15%.</p></div>
+        </div>
+        <div class="two-col" style="margin-top:40px">
+          <div class="panel">
+            <h3>Для покупателя</h3>
+            <p class="muted">Следите за лотом, ставьте заранее или в конце. Побеждает наивысшая ставка на момент закрытия. После победы — 48 часов на оплату.</p>
+          </div>
+          <div class="panel">
+            <h3>Для продавца</h3>
+            <p class="muted">Оценка, фотосъёмка, резервная цена. Комиссия продавца от 8%. Выплата после подтверждения получения лота покупателем.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sell">
+      <div class="container two-col">
+        <div>
+          <div class="eyebrow">Consign</div>
+          <h2>Выставить лот на торги</h2>
+          <p class="muted">Заявка уходит специалистам категории. Обычно отвечаем в течение суток. Это демонстрационная форма — данные остаются в браузере.</p>
+        </div>
+        <form class="panel" id="sell-form">
+          <div class="field"><label>Категория</label>
+            <select id="s-cat">
+              <option>Искусство</option><option>Часы</option><option>Авто</option>
+              <option>Ювелирные изделия</option><option>Вино</option><option>Антиквариат</option>
+            </select>
+          </div>
+          <div class="field"><label>Название</label><input id="s-title" required placeholder="Например, Rolex Submariner 1680"></div>
+          <div class="field"><label>Ожидаемая цена, ₽</label><input id="s-price" type="number" min="10000" required></div>
+          <div class="field"><label>Описание и провенанс</label><textarea id="s-desc" rows="5" required></textarea></div>
+          <button class="btn btn-gold" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="profile">
+      <div class="container">
+        <div class="eyebrow">Cabinet</div>
+        <h2 id="hello">Личный кабинет</h2>
+        <p class="muted" id="sub">Войдите, чтобы видеть ставки и избранное.</p>
+        <div class="two-col" style="margin-top:28px">
+          <div class="panel">
+            <h3>Мои ставки</h3>
+            <div id="my-bids"></div>
+          </div>
+          <div class="panel">
+            <h3>Избранные лоты</h3>
+            <div id="watch"></div>
+            <button class="btn btn-ghost" id="logout" style="margin-top:16px">Выйти</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let catalogFilter = "Все";
+
+    function renderFeaturedLots() {
+      const featured = window.AUREUM_LOTS.filter((l) => l.featured);
+      document.getElementById("featured").innerHTML = featured.map(lotCard).join("");
+      const hot = featured[0];
+      const b = state.bids[hot.id];
+      document.getElementById("hero-lot").innerHTML = `
+        <img src="${hot.image}" alt="${hot.title}">
+        <div class="hero-card-body">
+          <span class="badge badge-live"><span class="pulse"></span> Идут торги</span>
+          <h3 style="margin:12px 0 8px;font-size:30px">${hot.title}</h3>
+          <div class="price-row">
+            <span>Текущая<br><b>${money(b.current)}</b></span>
+            <span>Осталось<br><b class="js-timer" data-end="${b.endsAt}">${remain(b.endsAt)}</b></span>
+          </div>
+          <a class="btn btn-live" style="margin-top:16px;display:inline-block" href="lot.html?id=${hot.id}">Сделать ставку</a>
+        </div>
+      `;
+    }
+
+    function catalogCategories() {
+      return ["Все", ...new Set(window.AUREUM_LOTS.map((l) => l.category))];
+    }
+
+    function renderCatalogFilters() {
+      const filters = document.getElementById("catalog-filters");
+      if (!filters) return;
+      filters.innerHTML = catalogCategories().map((c) =>
+        `<button class="chip ${c === catalogFilter ? "active" : ""}" data-c="${c}">${c}</button>`
+      ).join("");
+      filters.querySelectorAll(".chip").forEach((btn) => {
+        btn.onclick = () => {
+          catalogFilter = btn.dataset.c;
+          renderCatalogFilters();
+          renderCatalogGrid();
+        };
+      });
+    }
+
+    function renderCatalogGrid() {
+      const q = document.getElementById("catalog-search");
+      const sort = document.getElementById("catalog-sort");
+      const grid = document.getElementById("catalog-grid");
+      if (!grid) return;
+
+      const query = (q ? q.value : "").toLowerCase();
+      const mode = sort ? sort.value : "end";
+
+      let list = window.AUREUM_LOTS.filter((l) => {
+        const text = (l.title + l.artist + l.category).toLowerCase();
+        return (catalogFilter === "Все" || l.category === catalogFilter) && text.includes(query);
+      });
+
+      list.sort((a, b) => {
+        if (mode === "end") return state.bids[a.id].endsAt - state.bids[b.id].endsAt;
+        if (mode === "price") return state.bids[b.id].current - state.bids[a.id].current;
+        return state.bids[a.id].current - state.bids[b.id].current;
+      });
+
+      grid.innerHTML = list.map(lotCard).join("") || "<p class='muted'>Ничего не найдено</p>";
+    }
+
+    function renderProfilePanel() {
+      const user = currentUser();
+      const hello = document.getElementById("hello");
+      const sub = document.getElementById("sub");
+      const myBids = document.getElementById("my-bids");
+      const watch = document.getElementById("watch");
+      if (!hello || !sub || !myBids || !watch) return;
+
+      if (!user) {
+        openAuth();
+        myBids.innerHTML = "<p class='muted'>Нет данных</p>";
+        watch.innerHTML = "<p class='muted'>Нет данных</p>";
+        return;
+      }
+
+      hello.textContent = "Здравствуйте, " + user;
+      sub.textContent = "История торгов хранится в этом браузере.";
+
+      const mine = window.AUREUM_LOTS.filter((l) => state.bids[l.id].history.some((h) => h.user === user));
+      const watched = window.AUREUM_LOTS.filter((l) => state.bids[l.id].watch);
+
+      myBids.innerHTML = mine.length
+        ? mine.map((l) => `<p><a href="lot.html?id=${l.id}">${l.title}</a><br><span class="muted">Сейчас ${money(state.bids[l.id].current)} · осталось <span class="js-timer" data-end="${state.bids[l.id].endsAt}">${remain(state.bids[l.id].endsAt)}</span></span></p>`).join("")
+        : "<p class='muted'>Ставок пока нет</p>";
+
+      watch.innerHTML = watched.length
+        ? watched.map((l) => `<p><a href="lot.html?id=${l.id}">${l.title}</a><br><span class="muted">Сейчас ${money(state.bids[l.id].current)} · осталось <span class="js-timer" data-end="${state.bids[l.id].endsAt}">${remain(state.bids[l.id].endsAt)}</span></span></p>`).join("")
+        : "<p class='muted'>Избранное пусто</p>";
+
+      const logout = document.getElementById("logout");
+      if (logout) {
+        logout.onclick = () => {
+          setUser(null);
+          location.reload();
+        };
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFeaturedLots();
+      renderCatalogFilters();
+      renderCatalogGrid();
+      renderProfilePanel();
+
+      const search = document.getElementById("catalog-search");
+      const sort = document.getElementById("catalog-sort");
+      if (search) search.oninput = renderCatalogGrid;
+      if (sort) sort.onchange = renderCatalogGrid;
+
+      const sellForm = document.getElementById("sell-form");
+      if (sellForm) {
+        sellForm.onsubmit = (e) => {
+          e.preventDefault();
+          if (!requireUser()) return;
+          const apps = JSON.parse(localStorage.getItem("aureum-sell") || "[]");
+          apps.push({
+            user: currentUser(),
+            cat: document.getElementById("s-cat").value,
+            title: document.getElementById("s-title").value,
+            price: document.getElementById("s-price").value,
+            desc: document.getElementById("s-desc").value,
+            t: Date.now()
+          });
+          localStorage.setItem("aureum-sell", JSON.stringify(apps));
+          sellForm.reset();
+          toast("Заявка принята. Мы свяжемся с вами.");
+        };
+      }
+    });
+  </script>
+</body>
+</html>
